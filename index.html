@@ -22,25 +22,30 @@
 
     <div class="layout-wrapper">
         <aside class="sidebar">
-            <div class="sidebar-header">
+            <div class="sidebar-header" id="sidebar-header" style="cursor: pointer;">
                 <h2>Categories</h2>
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+            <div class="sidebar-content" id="sidebar-content">
                 <div class="search-box">
                     <i class="fa-solid fa-search"></i>
                     <input type="text" id="category-search" placeholder="Search categories...">
                 </div>
+                <nav id="category-nav">
+                    <!-- Nav links generated dynamically by JS -->
+                </nav>
+                <div class="sidebar-footer" style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--surface-border);">
+                    <a href="about.html" class="nav-link">
+                        <i class="fa-solid fa-bolt"></i> <span>About Us</span>
+                    </a>
+                </div>
             </div>
-            <nav id="category-nav">
-                <!-- Nav links generated dynamically by JS -->
-            </nav>
         </aside>
 
         <main class="main-content">
             <header>
-                <div class="top-nav" style="text-align: right; margin-bottom: 1rem;">
-                    <a href="about.html"
-                        style="color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;"><i
-                            class="fa-solid fa-bolt"></i> About CommandDeck</a>
-                </div>
                 <h1><i class="fa-solid fa-layer-group"></i> CommandDeck</h1>
                 <p class="subtitle">Drawing massive inspiration from the legendary GTFOBins, CommandDeck provides a
                     blazing-fast, strictly curated local database spanning the most critical methodologies in both

@@ -4,6 +4,9 @@ const contentArea = document.getElementById('content-area');
 const categoryNav = document.getElementById('category-nav');
 const searchInput = document.getElementById('category-search');
 const tabBtns = document.querySelectorAll('.tab-btn');
+const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+const sidebarContent = document.getElementById('sidebar-content');
+const sidebarHeader = document.getElementById('sidebar-header');
 
 let currentTeam = 'red';
 let sectionElements = [];
@@ -160,6 +163,29 @@ tabBtns.forEach(btn => {
 });
 
 targetInput.addEventListener('input', renderContent);
+
+sidebarHeader.addEventListener('click', (e) => {
+    if (window.getComputedStyle(mobileMenuToggle).display !== 'none') {
+        sidebarContent.classList.toggle('active');
+        const icon = mobileMenuToggle.querySelector('i');
+        if (sidebarContent.classList.contains('active')) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-xmark');
+        } else {
+            icon.classList.remove('fa-xmark');
+            icon.classList.add('fa-bars');
+        }
+    }
+});
+
+categoryNav.addEventListener('click', (e) => {
+    if (e.target.closest('.nav-link') && window.getComputedStyle(mobileMenuToggle).display !== 'none') {
+        sidebarContent.classList.remove('active');
+        const icon = mobileMenuToggle.querySelector('i');
+        icon.classList.remove('fa-xmark');
+        icon.classList.add('fa-bars');
+    }
+});
 
 // Assuming data.js is loaded synchronously before this script
 requestAnimationFrame(() => {

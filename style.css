@@ -102,11 +102,32 @@ body.blue-mode {
     overflow-y: auto;
 }
 
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
 .sidebar-header h2 {
     font-size: 1.2rem;
-    margin-bottom: 1rem;
     color: var(--text-main);
     padding-left: 0.5rem;
+}
+
+.mobile-menu-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    color: var(--text-main);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.sidebar-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .search-box {
@@ -186,6 +207,7 @@ h1 {
     margin-bottom: 0.5rem;
     background: linear-gradient(135deg, #fff, #94a3b8);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -427,10 +449,22 @@ h1 {
     .sidebar {
         width: 100%;
         height: auto;
-        max-height: 300px;
         position: relative;
         border-right: none;
         border-bottom: 1px solid var(--surface-border);
+    }
+
+    .mobile-menu-toggle {
+        display: block;
+    }
+
+    .sidebar-content {
+        display: none;
+    }
+
+    .sidebar-content.active {
+        display: flex;
+        padding-bottom: 1rem;
     }
     
     .main-content {
