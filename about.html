@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About CommandDeck</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .about-container {
+            max-width: 900px;
+            margin: 4rem auto;
+            padding: 3rem;
+            background: var(--surface-bg);
+            border: 1px solid var(--surface-border);
+            border-radius: 12px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            line-height: 1.8;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+        
+        .about-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .about-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #fff, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .back-link {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: var(--text-main);
+        }
+
+        .marketing-section {
+            margin-bottom: 3rem;
+        }
+
+        .marketing-section h2 {
+            font-size: 1.8rem;
+            color: #fff;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .marketing-section h2 i {
+            color: var(--blue-team-primary);
+        }
+
+        .marketing-section p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-box {
+            background: rgba(0,0,0,0.2);
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255,255,255,0.15);
+        }
+
+        .feature-box i {
+            font-size: 2rem;
+            color: var(--red-team-primary);
+            margin-bottom: 1rem;
+        }
+
+        .feature-box h3 {
+            color: #f8fafc;
+            margin-bottom: 0.8rem;
+        }
+
+        .feature-box p {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+
+        .cta-box {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 1px solid var(--surface-border);
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--blue-team-primary), var(--red-team-primary));
+            color: #fff;
+            padding: 1.2rem 3rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .cta-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        @media (max-width: 768px) {
+            .feature-grid { grid-template-columns: 1fr; }
+            .about-container { margin: 2rem 1rem; padding: 2rem 1.5rem; }
+            .about-header h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body class="blue-mode">
+    <div class="background-effects">
+        <div class="glow red-glow"></div>
+        <div class="glow blue-glow"></div>
+    </div>
+
+    <div class="about-container">
+        <a href="index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Launch Application</a>
+        
+        <div class="about-header">
+            <h1>CommandDeck</h1>
+            <p style="color: var(--text-muted); font-size: 1.25rem;">The Ultimate Arsenal for the Modern Operator.</p>
+        </div>
+
+        <div class="marketing-section">
+            <h2><i class="fa-solid fa-crosshairs"></i> Stop Searching. Start Moving.</h2>
+            <p>During an active engagement—whether you are pivoting through an enterprise network or hunting a live intrusion—the last thing you want to do is break your momentum. Digging through messy internal wikis, fragmented GitHub gists, or outdated text files just to remember the exact syntax for a time-based SQL injection costs you precious minutes and disrupts your flow state.</p>
+            <p><strong>CommandDeck</strong> was engineered from the ground up to solve the greatest friction point for cybersecurity professionals: context switching.</p>
+        </div>
+
+        <div class="marketing-section">
+            <h2><i class="fa-solid fa-server"></i> How We Elevate the Industry</h2>
+            <p>Drawing massive inspiration from the legendary GTFOBins, CommandDeck provides a blazing-fast, strictly curated local database spanning the most critical methodologies in both Offensive and Defensive security. We didn't just build a list; we built a tactical heads-up display for cybersecurity.</p>
+            
+            <div class="feature-grid">
+                <div class="feature-box">
+                    <i class="fa-solid fa-bolt"></i>
+                    <h3>Dynamic Target Templating</h3>
+                    <p>Enter your target IP or domain exactly once. CommandDeck instantly parses and updates hundreds of complex command-lines simultaneously. Click to copy, ready to execute.</p>
+                </div>
+                <div class="feature-box">
+                    <i class="fa-solid fa-shield-halved" style="color: var(--blue-team-primary);"></i>
+                    <h3>Zero External Dependencies</h3>
+                    <p>Your engagements demand absolute privacy. CommandDeck runs securely offline in your browser utilizing Vanilla HTML and JavaScript. No servers, no tracking, no data exfiltration.</p>
+                </div>
+                <div class="feature-box">
+                    <i class="fa-solid fa-fire" style="color: var(--red-team-primary);"></i>
+                    <h3>Red & Blue Symmetry</h3>
+                    <p>Whether you're kerberoasting an Active Directory domain or crafting advanced Splunk SPL queries to hunt the attacker, toggle between mindsets smoothly with symmetric coverage.</p>
+                </div>
+                <div class="feature-box">
+                    <i class="fa-solid fa-magnifying-glass" style="color: #10b981;"></i>
+                    <h3>Zero-Friction UX</h3>
+                    <p>Navigate via the sticky GTFOBins-style sidebar or utilize fuzzy-search to teleport directly to the category you need. Highly structured data means zero bloat.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-box">
+            <h2 style="font-size: 2rem; color: #fff; margin-bottom: 1.5rem;">Ready to reclaim your expert time?</h2>
+            <a href="index.html" class="cta-btn">Initialize CommandDeck</a>
+        </div>
+    </div>
+</body>
+</html>
