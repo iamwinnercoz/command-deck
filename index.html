@@ -11,6 +11,7 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
@@ -21,14 +22,11 @@
     </div>
 
     <div class="layout-wrapper">
-        <aside class="sidebar">
-            <div class="sidebar-header" id="sidebar-header" style="cursor: pointer;">
-                <h2>Categories</h2>
-                <button class="mobile-menu-toggle" id="mobile-menu-toggle">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
-            </div>
+        <aside class="sidebar" id="sidebar">
             <div class="sidebar-content" id="sidebar-content">
+                <div class="sidebar-header-desktop">
+                    <h2>Categories</h2>
+                </div>
                 <div class="search-box">
                     <i class="fa-solid fa-search"></i>
                     <input type="text" id="category-search" placeholder="Search categories...">
@@ -36,7 +34,8 @@
                 <nav id="category-nav">
                     <!-- Nav links generated dynamically by JS -->
                 </nav>
-                <div class="sidebar-footer" style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--surface-border);">
+                <div class="sidebar-footer"
+                    style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--surface-border);">
                     <a href="about.html" class="nav-link">
                         <i class="fa-solid fa-bolt"></i> <span>About Us</span>
                     </a>
@@ -46,7 +45,12 @@
 
         <main class="main-content">
             <header>
-                <h1><i class="fa-solid fa-layer-group"></i> CommandDeck</h1>
+                <div class="mobile-header-row">
+                    <h1><i class="fa-solid fa-layer-group"></i> CommandDeck</h1>
+                    <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
                 <p class="subtitle">Drawing massive inspiration from the legendary GTFOBins, CommandDeck provides a
                     blazing-fast, strictly curated local database spanning the most critical methodologies in both
                     Offensive and Defensive security</p>

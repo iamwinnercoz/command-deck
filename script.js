@@ -5,8 +5,7 @@ const categoryNav = document.getElementById('category-nav');
 const searchInput = document.getElementById('category-search');
 const tabBtns = document.querySelectorAll('.tab-btn');
 const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-const sidebarContent = document.getElementById('sidebar-content');
-const sidebarHeader = document.getElementById('sidebar-header');
+const sidebar = document.getElementById('sidebar');
 
 let currentTeam = 'red';
 let sectionElements = [];
@@ -18,7 +17,7 @@ function renderContent() {
     contentArea.innerHTML = '';
     categoryNav.innerHTML = '';
     sectionElements = [];
-    
+
     const data = currentTeam === 'red' ? redTeamData : blueTeamData;
     const targetValue = targetInput.value.trim() || '{{TARGET}}';
 
@@ -63,7 +62,7 @@ function renderContent() {
         category.cmds.forEach(cmd => {
             const card = document.createElement('div');
             card.className = 'command-card';
-            
+
             // Allow dynamic replacement of target value
             const processedCmd = cmd.c.replace(/{{TARGET}}/g, targetValue);
 
@@ -77,7 +76,7 @@ function renderContent() {
 
             const codeBlock = document.createElement('div');
             codeBlock.className = 'code-block';
-            
+
             const codeElem = document.createElement('code');
             codeElem.textContent = processedCmd;
 
@@ -85,7 +84,7 @@ function renderContent() {
             btn.className = 'copy-btn';
             btn.title = 'Copy to clipboard';
             btn.innerHTML = `<i class="fa-solid fa-copy"></i>`;
-            
+
             btn.addEventListener('click', () => {
                 navigator.clipboard.writeText(processedCmd).then(() => {
                     const icon = btn.querySelector('i');
@@ -104,7 +103,7 @@ function renderContent() {
             card.appendChild(header);
             card.appendChild(desc);
             card.appendChild(codeBlock);
-            
+
             grid.appendChild(card);
         });
 
@@ -151,36 +150,34 @@ tabBtns.forEach(btn => {
         tabBtns.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         currentTeam = btn.getAttribute('data-team');
-        
+
         if (currentTeam === 'blue') {
             document.body.classList.add('blue-mode');
         } else {
             document.body.classList.remove('blue-mode');
         }
-        
+
         renderContent();
     });
 });
 
 targetInput.addEventListener('input', renderContent);
 
-sidebarHeader.addEventListener('click', (e) => {
-    if (window.getComputedStyle(mobileMenuToggle).display !== 'none') {
-        sidebarContent.classList.toggle('active');
-        const icon = mobileMenuToggle.querySelector('i');
-        if (sidebarContent.classList.contains('active')) {
-            icon.classList.remove('fa-bars');
-            icon.classList.add('fa-xmark');
-        } else {
-            icon.classList.remove('fa-xmark');
-            icon.classList.add('fa-bars');
-        }
+mobileMenuToggle.addEventListener('click', (e) => {
+    sidebar.classList.toggle('active');
+    const icon = mobileMenuToggle.querySelector('i');
+    if (sidebar.classList.contains('active')) {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-xmark');
+    } else {
+        icon.classList.remove('fa-xmark');
+        icon.classList.add('fa-bars');
     }
 });
 
 categoryNav.addEventListener('click', (e) => {
-    if (e.target.closest('.nav-link') && window.getComputedStyle(mobileMenuToggle).display !== 'none') {
-        sidebarContent.classList.remove('active');
+    if (e.target.closest('.nav-link')) {
+        sidebar.classList.remove('active');
         const icon = mobileMenuToggle.querySelector('i');
         icon.classList.remove('fa-xmark');
         icon.classList.add('fa-bars');
